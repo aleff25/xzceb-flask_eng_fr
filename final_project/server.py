@@ -5,7 +5,7 @@ import json
 app = Flask("Web Translator", static_folder="static")
 
 @app.route("/englishToFrench")
-def englishToFrench(englishText):
+def englishToFrench():
     textToTranslate = request.args.get('textToTranslate')
     return translator.english_to_french(english_text=textToTranslate)
 
@@ -16,7 +16,7 @@ def frenchToEnglish():
 
 @app.route("/")
 def renderIndexPage():
-    return render_template('mywebscript.js')
+    return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="127.0.0.1", port=3000)
